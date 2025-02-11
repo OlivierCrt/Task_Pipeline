@@ -8,7 +8,7 @@
 
 ## Comment Compiler
 Utilisez la commande suivante pour compiler le programme :
-gcc [fichier.c] tasks.c -o [nom de l'exécutable] -lm -lpng -lpthread
+gcc -o [nom executable] [dm-version.c] tasks.c -lpng -lpthread -lm
 
 ## Comment Exécuter
 Exécutez le programme avec la commande suivante :
