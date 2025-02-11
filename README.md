@@ -73,3 +73,55 @@ Nous avons exécuté les fichiers avec une configuration assez grosse, ce qui pe
 
 [CPU](https://www.intel.fr/content/www/fr/fr/products/sku/230580/intel-core-i513500-processor-24m-cache-up-to-4-80-ghz/specifications.html)
 ram cadencée a 3200 MHz
+
+### Analyse des Résultats
+
+Les résultats fournis montrent les temps d'exécution pour trois versions différentes d'un pipeline de tâches parallèle. Voici une analyse détaillée des performances et des conclusions qui peuvent être tirées :
+
+#### Version 1
+
+- **Temps total :** 344 ms
+- **Tâche la plus longue :** `image_gaussian_blur` (79.73 % du temps total)
+- **Autres tâches notables :**
+  - `image_save_fs` : 15.64 %
+  - `image_grayscale` : 3.00 %
+  - `image_stats` : 1.49 %
+
+#### Version 2
+
+- **Temps total :** 328 ms
+- **Tâche la plus longue :** `image_gaussian_blur` (87.40 % du temps total)
+- **Autres tâches notables :**
+  - `image_save_fs` : 12.26 %
+  - `image_grayscale` : 2.46 %
+  - `image_stats` : 1.60 %
+
+#### Version 3
+
+- **Temps total :** 514 ms
+- **Tâche la plus longue :** `image_gaussian_blur` (296.97 % du temps total)
+- **Autres tâches notables :**
+  - `image_save_fs` : 36.02 %
+  - `image_grayscale` : 7.98 %
+  - `image_stats` : 4.73 %
+
+### Conclusions
+
+1. **Performance Globale :**
+   - La Version 2 est la plus rapide avec un temps total de 328 ms, suivie par la Version 1 avec 344 ms. La Version 3 est nettement plus lente avec 514 ms.
+
+2. **Tâche Limite :**
+   - Dans toutes les versions, la tâche `image_gaussian_blur` est la plus consommatrice de temps. Elle représente une part disproportionnée du temps total, surtout dans la Version 3 où elle dépasse même 100 % du temps total initial, indiquant une inefficacité ou une mauvaise optimisation dans cette version.
+
+3. **Optimisation :**
+   - La Version 2 semble mieux optimisée que la Version 1, réduisant le temps total malgré une augmentation de la proportion de temps pour `image_gaussian_blur`. Cela suggère que l'attribution dynamique des tâches a été bénéfique.
+   - La Version 3, bien que visant à optimiser davantage, a en fait augmenté le temps total. Cela pourrait être dû à une complexité accrue dans la gestion des sous-tâches ou à des problèmes de synchronisation.
+
+4. **Recommandations :**
+   - **Optimisation de `image_gaussian_blur` :** Étant donné que cette tâche est la plus lente, une optimisation spécifique de cette tâche pourrait améliorer considérablement les performances globales.
+   - **Révision de la Version 3 :** Il serait utile de revoir la Version 3 pour identifier pourquoi elle est moins performante et corriger les problèmes potentiels de synchronisation ou de gestion des sous-tâches.
+   - **Profilage Continu :** Continuer à profiler les tâches pour identifier les goulots d'étranglement et ajuster les implémentations en conséquence.
+
+En conclusion, bien que la parallélisation ait montré des améliorations, notamment dans la Version 2, il reste des opportunités d'optimisation, en particulier pour la tâche `image_gaussian_blur`.
+
+
