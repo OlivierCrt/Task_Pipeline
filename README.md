@@ -7,22 +7,22 @@
 - 22206700 Ismael Monge Rouchdi
 
 ## Comment Compiler
-Utilise la commande suivante pour compiler le programme :
+Utilisez la commande suivante pour compiler le programme :
 gcc [fichier.c] tasks.c -o [nom de l'exécutable] -lm -lpng
 
 ## Comment Exécuter
-Exécute le programme avec la commande suivante :
+Exécutez le programme avec la commande suivante :
 ./dm-v1 <nb-steps> <img-width> <img-height> <save-img>
 
 ### Paramètres :
-- `<nb-steps>` : Nombre de photogrammes à extraire de la simulation.
+- `<nb-steps>` : Nombre de photos à extraire de la simulation.
 - `<img-width>` : Largeur de l'image en pixels (influence la qualité des images obtenues).
 - `<img-height>` : Hauteur de l'image en pixels (influence la qualité des images obtenues).
 - `<save-img>` : "1" pour sauvegarder les images, "0" pour ne pas les sauvegarder.
 
 ## Résultats
 
-### Version 2 :
+### Version 1 :
 (base) root@LAPTOP-69PTGC54:/home/python/Task_Pipeline/src# ./dm-v1 1 1080 1080 1
 ok
 
@@ -37,7 +37,7 @@ Détail par étape :
 - image_stats: 5 ms, 120631 ns (1.49 % du total)
 - stats_save_fs: 122517 ns (0.04 % du total)
 
-### Version 1 :
+### Version 2 :
 (base) root@LAPTOP-69PTGC54:/home/python/Task_Pipeline/src# ./dm-v2 1 1080 1080 1
 Temps total :        328 ms, 701164 ns (100.00 % du total)
 
