@@ -31,6 +31,8 @@ int main(int argc, char *argv[]) {
   };
 
   srand(1);
+
+
   for (int i = 1; i < N_BODIES; ++i) {
     double dist = bodies[i].x;
     double angle = 2 * M_PI * (double)rand() / RAND_MAX;
@@ -85,6 +87,7 @@ int main(int argc, char *argv[]) {
   }
 
   int64_t total_ns = ns_diff(&t0, &t1);
+  printf("ok\n");
   print_elapsed_time_stats(total_ns);
 
   free_img(img1); img1 = NULL;
