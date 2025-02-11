@@ -64,3 +64,12 @@ Détail par étape :
 - image_grayscale: 41 ms, 61137 ns (7.98 % du total)
 - image_stats: 24 ms, 340447 ns (4.73 % du total)
 - stats_save_fs: 358360 ns (0.07 % du total)
+
+## Remarque
+
+
+Nous avons remarqué que les temps d'exécution variaient beaucoup, notamment en fonction de la machine qui les effectuait.
+Nous avons exécuté les fichiers avec une configuration assez grosse, ce qui peut rendre la différence de temps d'exécution moins évidente.
+
+[CPU](https://www.intel.fr/content/www/fr/fr/products/sku/230580/intel-core-i513500-processor-24m-cache-up-to-4-80-ghz/specifications.html)
+ram cadencée a 3200 MHz
